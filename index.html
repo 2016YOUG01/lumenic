@@ -56,8 +56,56 @@ font-weight: 700;
 .content {
 padding: 30px;
 min-height: 400px;
-position: relative; 
+position: relative;
 }
+
+/* --- License Screen Styles --- */
+#licenseScreen {
+text-align: center;
+padding: 40px;
+}
+
+#licenseScreen h2 {
+font-size: 1.8rem;
+margin-bottom: 15px;
+color: #e0e0e0;
+}
+
+#licenseScreen p {
+font-size: 1rem;
+color: #aaa;
+margin-bottom: 30px;
+}
+
+.license-input {
+background: #2a2a2a;
+border: 2px solid #444;
+color: #f0f0f0;
+padding: 15px;
+border-radius: 8px;
+font-size: 1.1rem;
+width: 100%;
+max-width: 400px;
+margin-bottom: 20px;
+text-align: center;
+letter-spacing: 2px;
+}
+
+.license-input:focus {
+outline: none;
+border-color: #007bff;
+box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+#licenseError {
+color: #dc3545;
+font-weight: 600;
+min-height: 20px;
+margin-top: -10px;
+margin-bottom: 15px;
+}
+/* ---------------------------------- */
+
 
 /* Subject Selection Screen */
 .subject-selection {
@@ -123,325 +171,321 @@ margin-bottom: 15px;
 color: #d0d0d0;
 }
 
-/* --- NEW: Combined Test Section --- */
 .combined-test-selection {
- margin-top: 20px;
- padding-top: 20px;
- border-top: 1px solid #444;
- text-align: center;
+margin-top: 20px;
+padding-top: 20px;
+border-top: 1px solid #444;
+text-align: center;
 }
 .combined-test-selection h3 {
- margin-bottom: 15px;
- color: #ccc;
- font-weight: 600;
- font-size: 1.2rem;
+margin-bottom: 15px;
+color: #ccc;
+font-weight: 600;
+font-size: 1.2rem;
 }
 .combined-test-btn {
- background: #4a4a4a;
- color: #fff;
- border: 1px solid #666;
- padding: 12px 25px;
- border-radius: 8px;
- cursor: pointer;
- margin: 5px 10px;
- transition: all 0.3s ease;
- font-size: 1rem;
- font-weight: 600;
+background: #4a4a4a;
+color: #fff;
+border: 1px solid #666;
+padding: 12px 25px;
+border-radius: 8px;
+cursor: pointer;
+margin: 5px 10px;
+transition: all 0.3s ease;
+font-size: 1rem;
+font-weight: 600;
 }
 .combined-test-btn:hover {
- background: #5a5a5a;
- border-color: #888;
- transform: translateY(-2px);
+background: #5a5a5a;
+border-color: #888;
+transform: translateY(-2px);
 }
-/* -------------------------------- */
 
 .set-header {
- display: flex;
- align-items: center;
- margin-bottom: 20px;
- padding: 0 10px; 
- position: relative;
+display: flex;
+align-items: center;
+margin-bottom: 20px;
+padding: 0 10px;
+position: relative;
 }
 
 .back-btn {
- background: none;
- border: 1px solid #555;
- color: #f0f0f0;
- font-size: 1rem;
- padding: 8px 15px;
- border-radius: 8px;
- cursor: pointer;
- transition: all 0.2s;
- display: flex; 
- align-items: center; 
- gap: 5px;
+background: none;
+border: 1px solid #555;
+color: #f0f0f0;
+font-size: 1rem;
+padding: 8px 15px;
+border-radius: 8px;
+cursor: pointer;
+transition: all 0.2s;
+display: flex;
+align-items: center;
+gap: 5px;
 }
 
 .set-header .back-btn {
- position: absolute; 
- left: 20px; 
- z-index: 10;
+position: absolute;
+left: 20px;
+z-index: 10;
 }
 
 #quizScreen #backToSetsBtn {
- position: absolute; 
- top: 30px;
- left: 30px;
- z-index: 10;
+position: absolute;
+top: 30px;
+left: 30px;
+z-index: 10;
 }
 
 .back-btn:hover {
- background: #333;
- border-color: #777;
+background: #333;
+border-color: #777;
 }
 
 .set-header h2 {
- font-size: 1.8rem;
- margin: 0 auto; 
- color: #e0e0e0;
- text-align: center;
- width: 100%;
+font-size: 1.8rem;
+margin: 0 auto;
+color: #e0e0e0;
+text-align: center;
+width: 100%;
 }
 
 .set-list {
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
- gap: 15px;
- margin-top: 20px;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+gap: 15px;
+margin-top: 20px;
 }
 
 .set-item {
- background: #2a2a2a;
- border: 2px solid #444;
- border-radius: 10px;
- padding: 20px 10px;
- text-align: center;
- cursor: pointer;
- transition: all 0.3s ease;
- position: relative;
- overflow: hidden;
- display: flex;
- justify-content: center;
- align-items: center;
- font-size: 1.5rem;
- font-weight: 600;
- color: #e0e0e0;
+background: #2a2a2a;
+border: 2px solid #444;
+border-radius: 10px;
+padding: 20px 10px;
+text-align: center;
+cursor: pointer;
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 1.5rem;
+font-weight: 600;
+color: #e0e0e0;
 }
 
 .set-item:hover {
- background: #333;
- border-color: #5a5a5a;
- transform: translateY(-5px);
- box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+background: #333;
+border-color: #5a5a5a;
+transform: translateY(-5px);
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Quiz Screen */
 .quiz-header {
- font-size: 1.8rem;
- margin-bottom: 10px;
- color: #fff;
- font-weight: 700;
- text-align: center;
- margin-top: 50px; 
+font-size: 1.8rem;
+margin-bottom: 10px;
+color: #fff;
+font-weight: 700;
+text-align: center;
+margin-top: 50px;
 }
 
 .quiz-info {
- font-size: 1rem;
- color: #aaa;
- margin-bottom: 20px;
- font-weight: 600;
- text-align: center;
+font-size: 1rem;
+color: #aaa;
+margin-bottom: 20px;
+font-weight: 600;
+text-align: center;
 }
 
 .question-box {
- background: #2a2a2a;
- padding: 25px;
- border-radius: 10px;
- margin-bottom: 20px;
- font-size: 1.2rem;
- min-height: 100px;
+background: #2a2a2a;
+padding: 25px;
+border-radius: 10px;
+margin-bottom: 20px;
+font-size: 1.2rem;
+min-height: 100px;
 }
 
 .options-list {
- display: grid;
- gap: 10px;
- margin-bottom: 20px;
+display: grid;
+gap: 10px;
+margin-bottom: 20px;
 }
 
 .option-btn {
- background: #333;
- border: 1px solid #555;
- color: #f0f0f0;
- padding: 15px;
- text-align: left;
- border-radius: 8px;
- cursor: pointer;
- transition: all 0.2s;
- font-size: 1rem;
- font-weight: 400;
+background: #333;
+border: 1px solid #555;
+color: #f0f0f0;
+padding: 15px;
+text-align: left;
+border-radius: 8px;
+cursor: pointer;
+transition: all 0.2s;
+font-size: 1rem;
+font-weight: 400;
 }
 
 .option-btn:hover:not(.disabled) {
- background: #444;
- transform: translateX(5px);
+background: #444;
+transform: translateX(5px);
 }
 
 .option-btn:active {
- transform: scale(0.98);
+transform: scale(0.98);
 }
 
 .option-btn.correct {
- background: #28a745;
- border-color: #1e7e34;
- animation: correctPulse 0.5s;
+background: #28a745;
+border-color: #1e7e34;
+animation: correctPulse 0.5s;
 }
 
 .option-btn.wrong {
- background: #dc3545;
- border-color: #bd2130;
- animation: wrongShake 0.5s;
+background: #dc3545;
+border-color: #bd2130;
+animation: wrongShake 0.5s;
 }
 
 .option-btn.disabled {
- pointer-events: none;
- opacity: 0.6;
+pointer-events: none;
+opacity: 0.6;
 }
 
 @keyframes correctPulse {
- 0%, 100% { transform: scale(1); }
- 50% { transform: scale(1.05); }
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.05); }
 }
 
 @keyframes wrongShake {
- 0%, 100% { transform: translateX(0); }
- 25% { transform: translateX(-5px); }
- 75% { transform: translateX(5px); }
+0%, 100% { transform: translateX(0); }
+25% { transform: translateX(-5px); }
+75% { transform: translateX(5px); }
 }
 
 .feedback-message {
- margin-top: 15px;
- padding: 10px;
- border-radius: 8px;
- font-weight: 600;
- text-align: center;
- min-height: 40px;
+margin-top: 15px;
+padding: 10px;
+border-radius: 8px;
+font-weight: 600;
+text-align: center;
+min-height: 40px;
 }
 
 .feedback-message.correct {
- background: rgba(40, 167, 69, 0.2);
- color: #28a745;
+background: rgba(40, 167, 69, 0.2);
+color: #28a745;
 }
 
 .feedback-message.incorrect {
- background: rgba(220, 53, 69, 0.2);
- color: #dc3545;
+background: rgba(220, 53, 69, 0.2);
+color: #dc3545;
 }
 
 .navigation-btn {
- background: #007bff;
- color: #fff;
- border: none;
- padding: 12px 25px;
- border-radius: 8px;
- cursor: pointer;
- margin: 10px 5px;
- transition: background 0.3s;
- font-size: 1.1rem;
- font-weight: 600;
+background: #007bff;
+color: #fff;
+border: none;
+padding: 12px 25px;
+border-radius: 8px;
+cursor: pointer;
+margin: 10px 5px;
+transition: background 0.3s;
+font-size: 1.1rem;
+font-weight: 600;
 }
 
 .navigation-btn:hover {
- background: #0056b3;
+background: #0056b3;
 }
 
 .navigation-btn.secondary {
- background: #6c757d;
+background: #6c757d;
 }
 
 .navigation-btn.secondary:hover {
- background: #5a6268;
+background: #5a6268;
 }
 
 .loading-text {
- text-align: center;
- padding: 50px;
- font-size: 1.5rem;
- color: #aaa;
+text-align: center;
+padding: 50px;
+font-size: 1.5rem;
+color: #aaa;
 }
 
 .error-text {
- text-align: center;
- padding: 30px;
- font-size: 1.2rem;
- color: #dc3545;
- background: rgba(220, 53, 69, 0.1);
- border-radius: 10px;
- margin: 20px 0;
+text-align: center;
+padding: 30px;
+font-size: 1.2rem;
+color: #dc3545;
+background: rgba(220, 53, 69, 0.1);
+border-radius: 10px;
+margin: 20px 0;
 }
 
-/* Results Screen */
 .results-summary {
- background: #2a2a2a;
- padding: 40px;
- border-radius: 15px;
- margin-bottom: 30px;
- text-align: center;
+background: #2a2a2a;
+padding: 40px;
+border-radius: 15px;
+margin-bottom: 30px;
+text-align: center;
 }
 
 .results-summary h2 {
- font-size: 2.5rem;
- margin-bottom: 15px;
+font-size: 2.5rem;
+margin-bottom: 15px;
 }
 
 .results-summary p {
- font-size: 1.5rem;
- color: #ccc;
- margin-bottom: 5px;
+font-size: 1.5rem;
+color: #ccc;
+margin-bottom: 5px;
 }
 
 .results-summary .percentage {
- font-size: 2rem;
- font-weight: 700;
- color: #007bff;
+font-size: 2rem;
+font-weight: 700;
+color: #007bff;
 }
 
 .results-actions {
- text-align: center;
+text-align: center;
 }
 
 .screen {
- display: none;
+display: none;
 }
 
 .screen.active {
- display: block;
+display: block;
 }
 
 footer {
- text-align: center;
- padding: 20px;
- background: #222;
- color: #aaa;
- font-size: 0.9rem;
- border-top: 1px solid #333;
+text-align: center;
+padding: 20px;
+background: #222;
+color: #aaa;
+font-size: 0.9rem;
+border-top: 1px solid #333;
 }
 
 .debug-panel {
- position: fixed;
- bottom: 10px;
- right: 10px;
- background: rgba(0,0,0,0.9);
- color: #0f0;
- padding: 10px;
- border-radius: 5px;
- font-family: monospace;
- font-size: 12px;
- max-width: 300px;
- display: none;
+position: fixed;
+bottom: 10px;
+right: 10px;
+background: rgba(0,0,0,0.9);
+color: #0f0;
+padding: 10px;
+border-radius: 5px;
+font-family: monospace;
+font-size: 12px;
+max-width: 300px;
+display: none;
 }
 
 .debug-panel.show {
- display: block;
+display: block;
 }
 </style>
 </head>
@@ -452,67 +496,78 @@ footer {
 </header>
 
 <div class="content">
-<div id="subjectScreen" class="screen active">
- <div class="subject-selection">
- <button class="subject-btn" data-subject="SEJARAH">
- <i class="fas fa-book"></i>
- SEJARAH
- </button>
- <button class="subject-btn" data-subject="GEOGRAFI">
- <i class="fas fa-globe-asia"></i>
- GEOGRAFI
- </button>
- <button class="subject-btn" data-subject="SCIENCE">
- <i class="fas fa-flask"></i>
- SCIENCE
- </button>
- </div>
 
-  <div class="combined-test-selection">
-    <h3>Combined Test (50 Questions)</h3>
-    <button class="combined-test-btn" data-subject="SEJARAH"><i class="fas fa-vial"></i> SEJARAH</button>
-    <button class="combined-test-btn" data-subject="GEOGRAFI"><i class="fas fa-vial"></i> GEOGRAFI</button>
-    <button class="combined-test-btn" data-subject="SCIENCE"><i class="fas fa-vial"></i> SCIENCE</button>
-  </div>
-  </div>
+<div id="licenseScreen" class="screen active">
+<h2><i class="fas fa-user-shield"></i> Welcome to Lumenic</h2>
+<p>Please enter your name and serial number to begin.</p>
+ <input type="text" id="nameInput" class="license-input" placeholder="ENTER YOUR FULL NAME" autocomplete="name" style="letter-spacing: 1px;">
+<input type="text" id="licenseInput" class="license-input" placeholder="XXXX-XXXX-XXXXX">
+<p id="licenseError"></p>
+<button id="submitLicenseBtn" class="navigation-btn">LOGIN</button>
+</div>
+
+
+<div id="subjectScreen" class="screen">
+<div class="subject-selection">
+<button class="subject-btn" data-subject="SEJARAH">
+<i class="fas fa-book"></i>
+SEJARAH
+</button>
+<button class="subject-btn" data-subject="GEOGRAFI">
+<i class="fas fa-globe-asia"></i>
+GEOGRAFI
+</button>
+<button class="subject-btn" data-subject="SCIENCE">
+<i class="fas fa-flask"></i>
+SCIENCE
+</button>
+</div>
+
+ <div class="combined-test-selection">
+  <h3>Combined Test (50 Questions)</h3>
+  <button class="combined-test-btn" data-subject="SEJARAH"><i class="fas fa-vial"></i> SEJARAH</button>
+  <button class="combined-test-btn" data-subject="GEOGRAFI"><i class="fas fa-vial"></i> GEOGRAFI</button>
+  <button class="combined-test-btn" data-subject="SCIENCE"><i class="fas fa-vial"></i> SCIENCE</button>
+ </div>
+ </div>
 
 <div id="setScreen" class="screen">
- <div class="set-header">
- <button id="backBtn" class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
- <h2 id="setSubjectTitle"></h2>
- </div>
- <div class="set-list" id="setList"></div>
+<div class="set-header">
+<button id="backBtn" class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+<h2 id="setSubjectTitle"></h2>
+</div>
+<div class="set-list" id="setList"></div>
 </div>
 
 <div id="quizScreen" class="screen">
- <button class="back-btn" id="backToSetsBtn"><i class="fas fa-arrow-left"></i> Back</button>
- 
- <h2 class="quiz-header" id="quizTitle">Quiz</h2>
- <div class="quiz-info">
- <span id="questionCounter">Question 1 of 10</span> | <span id="scoreTracker">Score: 0</span>
- </div>
- 
- <div class="question-box" id="questionBox">Loading question...</div>
- <div class="options-list" id="optionsList"></div>
- <div id="feedbackMessage" class="feedback-message"></div>
- 
- <div style="text-align: center;">
- <button class="navigation-btn" id="nextQuestionBtn" style="display: none;">NEXT QUESTION</button>
- <button class="navigation-btn" id="finishQuizBtn" style="display: none;">FINISH QUIZ</button>
- </div>
+<button class="back-btn" id="backToSetsBtn"><i class="fas fa-arrow-left"></i> Back</button>
+
+<h2 class="quiz-header" id="quizTitle">Quiz</h2>
+<div class="quiz-info">
+<span id="questionCounter">Question 1 of 10</span> | <span id="scoreTracker">Score: 0</span>
+</div>
+
+<div class="question-box" id="questionBox">Loading question...</div>
+<div class="options-list" id="optionsList"></div>
+<div id="feedbackMessage" class="feedback-message"></div>
+
+<div style="text-align: center;">
+<button class="navigation-btn" id="nextQuestionBtn" style="display: none;">NEXT</button>
+<button class="navigation-btn" id="finishQuizBtn" style="display: none;">FINISH</button>
+</div>
 </div>
 
 <div id="resultsScreen" class="screen">
- <div class="results-summary">
- <h2>Quiz Complete!</h2>
- <p>Your Final Score:</p>
- <p id="finalScore" style="font-size: 3rem; font-weight: 700;">0 / 0</p>
- <p id="finalPercentage" class="percentage">0%</p>
- </div>
- <div class="results-actions">
- <button id="tryAgainBtn" class="navigation-btn">Try Again</button>
- <button id="homeBtn" class="navigation-btn secondary">Choose Subject</button>
- </div>
+<div class="results-summary">
+<h2>Completed</h2>
+<p>Your Final Score:</p>
+<p id="finalScore" style="font-size: 3rem; font-weight: 700;">0 / 0</p>
+<p id="finalPercentage" class="percentage">0%</p>
+</div>
+<div class="results-actions">
+<button id="tryAgainBtn" class="navigation-btn">Try Again</button>
+<button id="homeBtn" class="navigation-btn secondary">Home</button>
+</div>
 </div>
 </div>
 
@@ -524,395 +579,561 @@ footer {
 <div id="debugPanel" class="debug-panel"></div>
 
 <script>
+// --- License Management System ---
+// IMPORTANT: This is client-side validation and is NOT secure.
+// For true security, validation must be server-side.
+
+const VALID_LICENSE_HASHES = new Set([
+ '94c025b0159eb4807bae503bb35bef72027a5b98d822267c476d73f5d0354cdd',
+ 'abaa3857cca383d67295bdad91ec47bbf19269b68e21087b3aac0d8e5feef1ba',
+ '84c1e07c95f5a795a2b509db0d9db215fd234a8cb3e1474ff1164fd6e6ed3c1c',
+ '48ae1387c01a12fe1ec37e51cdf2f11a79ae00c1cb694dc057d9bddc968dc19e',
+ '2cc9bd8788deef01c2863e715e0c7ca6bfe7a03caf72e8b3771784aa86236576',
+ '2e1df1981be5f855b2189d0a42ecb2b151a1143399c30b223b8f832c9f3feebe',
+]);
+
+async function hashString(str) {
+ let keyWithoutDashes = str.replace(/-/g, '');
+ const textAsBuffer = new TextEncoder().encode(keyWithoutDashes);
+ const hashBuffer = await crypto.subtle.digest('SHA-256', textAsBuffer);
+ const hashArray = Array.from(new Uint8Array(hashBuffer));
+ return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function setCookie(name, value, days) {
+  let expires = "";
+  if (days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax";
+}
+
+function getCookie(name) {
+  const nameEQ = name + "=";
+  const ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
+}
+
+async function validateLicense(key) {
+  if (!key) return false;
+  const keyHash = await hashString(key.trim().toUpperCase());
+  return VALID_LICENSE_HASHES.has(keyHash);
+}
+
+function showApp() {
+  debug("Credentials valid, showing application.");
+  showScreen('subjectScreen');
+}
+// --- END: License Management System ---
+
+
 // Configuration
 const SHEET_ID = '1GXpXihMX1Un1qxkt7c9NOFkMSQCbE95NOjrEwXZ-MDM';
 const API_KEY = 'AIzaSyBtMj25pNmkHAVcwtMCvQGP3R1zddMatSE';
 
 const subjectChapters = {
- "SEJARAH": [1,2,3,4,5,6,7,8],
- "GEOGRAFI": [1,2,3,4,5,6,7,8,9,10,11],
- "SCIENCE": [1,2,3,4,5,6,7,8,9,10]
+"SEJARAH": [1,2,3,4,5,6,7,8],
+"GEOGRAFI": [1,2,3,4,5,6,7,8,9,10,11],
+"SCIENCE": [1,2,3,4,5,6,7,8,9,10]
 };
 
 // State management
 const state = {
- currentQuizData: [],
- currentQuestionIndex: 0,
- score: 0,
- currentSubject: '',
- currentChapterId: 0,
- answerSelected: false,
-  isCombinedTest: false // NEW: Flag for combined test mode
+currentQuizData: [],
+currentQuestionIndex: 0,
+score: 0,
+currentSubject: '',
+currentChapterId: 0,
+answerSelected: false,
+isCombinedTest: false
 };
 
 // Debug function
 function debug(message) {
- console.log(`[DEBUG] ${message}`);
- const debugPanel = document.getElementById('debugPanel');
- if (debugPanel) {
- debugPanel.innerHTML = `${new Date().toLocaleTimeString()}: ${message}`;
- debugPanel.classList.add('show');
- setTimeout(() => debugPanel.classList.remove('show'), 3000);
- }
+console.log(`[DEBUG] ${message}`);
+const debugPanel = document.getElementById('debugPanel');
+if (debugPanel) {
+debugPanel.innerHTML = `${new Date().toLocaleTimeString()}: ${message}`;
+debugPanel.classList.add('show');
+setTimeout(() => debugPanel.classList.remove('show'), 3000);
+}
 }
 
 // Screen management
 function showScreen(screenId) {
- debug(`Showing screen: ${screenId}`);
- document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
- const targetScreen = document.getElementById(screenId);
- if (targetScreen) targetScreen.classList.add('active');
+debug(`Showing screen: ${screenId}`);
+document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
+const targetScreen = document.getElementById(screenId);
+if (targetScreen) targetScreen.classList.add('active');
 }
 
 // Fisher-Yates shuffle
 function shuffleArray(array) {
- const shuffled = [...array];
- for (let i = shuffled.length - 1; i > 0; i--) {
- const j = Math.floor(Math.random() * (i + 1));
- [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
- }
- return shuffled;
+const shuffled = [...array];
+for (let i = shuffled.length - 1; i > 0; i--) {
+const j = Math.floor(Math.random() * (i + 1));
+[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+}
+return shuffled;
 }
 
 // Fetch quiz data from Google Sheets
 async function fetchQuizData(sheetName) {
- debug(`Fetching data for sheet: ${sheetName}`);
- const range = `'${sheetName}'!A:F`;
- const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${encodeURIComponent(range)}?key=${API_KEY}`;
- 
- try {
- const response = await fetch(url);
- if (!response.ok) throw new Error(`API Error: ${response.status} ${response.statusText}`);
- 
- const data = await response.json();
- if (!data.values || data.values.length === 0) throw new Error('No data found in sheet');
- 
- const questions = [];
- data.values.forEach((row, index) => {
-  if (row.length >= 6 && row[0] && row[0].trim() && row[5] && ['A', 'B', 'C', 'D'].includes(row[5].trim().toUpperCase())) {
-  const correctLetter = row[5].trim().toUpperCase();
-  const question = {
-   id: index,
-   question: row[0].trim(),
-   options: [],
-   correctAnswerLetter: correctLetter 
-  };
-  
-  ['A', 'B', 'C', 'D'].forEach((letter, i) => {
-   if (row[i + 1] && row[i + 1].trim()) {
-   question.options.push({ letter, text: row[i + 1].trim(), isCorrect: letter === correctLetter });
-   }
-  });
-  
-  if (question.options.length > 0) questions.push(question);
-  }
- });
- return questions;
- } catch (error) {
- console.error('Fetch error:', error);
- throw error;
+debug(`Fetching data for sheet: ${sheetName}`);
+const range = `'${sheetName}'!A:F`;
+const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${encodeURIComponent(range)}?key=${API_KEY}`;
+
+try {
+const response = await fetch(url);
+if (!response.ok) throw new Error(`API Error: ${response.status} ${response.statusText}`);
+
+const data = await response.json();
+if (!data.values || data.values.length === 0) throw new Error('No data found in sheet');
+
+const questions = [];
+data.values.forEach((row, index) => {
+ if (row.length >= 6 && row[0] && row[0].trim() && row[5] && ['A', 'B', 'C', 'D'].includes(row[5].trim().toUpperCase())) {
+ const correctLetter = row[5].trim().toUpperCase();
+ const question = {
+ id: index,
+ question: row[0].trim(),
+ options: [],
+ correctAnswerLetter: correctLetter
+ };
+
+ ['A', 'B', 'C', 'D'].forEach((letter, i) => {
+ if (row[i + 1] && row[i + 1].trim()) {
+ question.options.push({ letter, text: row[i + 1].trim(), isCorrect: letter === correctLetter });
  }
+ });
+
+ if (question.options.length > 0) questions.push(question);
+ }
+});
+return questions;
+} catch (error) {
+console.error('Fetch error:', error);
+throw error;
+}
 }
 
 // Initialize single chapter quiz
 async function startQuiz() {
- debug(`Starting quiz: ${state.currentSubject} - Chapter ${state.currentChapterId}`);
- showScreen('quizScreen');
- 
- state.currentQuestionIndex = 0;
- state.score = 0;
- state.answerSelected = false;
-  state.isCombinedTest = false;
- 
- const quizTitle = document.getElementById('quizTitle');
- const questionBox = document.getElementById('questionBox');
- const optionsList = document.getElementById('optionsList');
- 
- quizTitle.textContent = `${state.currentSubject} - Chapter ${state.currentChapterId}`;
- questionBox.innerHTML = '<div class="loading-text"><i class="fas fa-spinner fa-spin"></i> Loading questions...</div>';
- optionsList.innerHTML = '';
- 
- document.getElementById('nextQuestionBtn').style.display = 'none';
- document.getElementById('finishQuizBtn').style.display = 'none';
- 
- let sheetPrefix = state.currentSubject === 'SEJARAH' ? 'SEJ' : state.currentSubject === 'GEOGRAFI' ? 'GEO' : 'SCI';
- const sheetName = `${sheetPrefix} ${state.currentChapterId}`;
- 
- try {
- const questions = await fetchQuizData(sheetName);
- if (questions.length === 0) throw new Error('No valid questions found');
- 
- state.currentQuizData = shuffleArray(questions);
- displayQuestion();
- } catch (error) {
- console.error('Failed to load quiz:', error);
- questionBox.innerHTML = `<div class="error-text"><i class="fas fa-exclamation-triangle"></i><br>Failed to load quiz<br><small>${error.message}</small></div>`;
- optionsList.innerHTML = '';
- }
+debug(`Starting quiz: ${state.currentSubject} - Chapter ${state.currentChapterId}`);
+showScreen('quizScreen');
+
+state.currentQuestionIndex = 0;
+state.score = 0;
+state.answerSelected = false;
+state.isCombinedTest = false;
+
+const quizTitle = document.getElementById('quizTitle');
+const questionBox = document.getElementById('questionBox');
+const optionsList = document.getElementById('optionsList');
+
+quizTitle.textContent = `${state.currentSubject} - Chapter ${state.currentChapterId}`;
+questionBox.innerHTML = '<div class="loading-text"><i class="fas fa-spinner fa-spin"></i> Loading questions...</div>';
+optionsList.innerHTML = '';
+
+document.getElementById('nextQuestionBtn').style.display = 'none';
+document.getElementById('finishQuizBtn').style.display = 'none';
+
+let sheetPrefix = state.currentSubject === 'SEJARAH' ? 'SEJ' : state.currentSubject === 'GEOGRAFI' ? 'GEO' : 'SCI';
+const sheetName = `${sheetPrefix} ${state.currentChapterId}`;
+
+try {
+const questions = await fetchQuizData(sheetName);
+if (questions.length === 0) throw new Error('No valid questions found');
+
+state.currentQuizData = shuffleArray(questions);
+displayQuestion();
+} catch (error) {
+console.error('Failed to load quiz:', error);
+questionBox.innerHTML = `<div class="error-text"><i class="fas fa-exclamation-triangle"></i><br>Failed to load quiz<br><small>${error.message}</small></div>`;
+optionsList.innerHTML = '';
+}
 }
 
-// --- NEW: Function to start the 50-question combined test ---
 async function startCombinedQuiz(subject) {
-    debug(`Starting combined quiz for: ${subject}`);
-    showScreen('quizScreen');
+  debug(`Starting combined quiz for: ${subject}`);
+  showScreen('quizScreen');
 
-    // 1. Reset state
-    state.currentQuestionIndex = 0;
-    state.score = 0;
-    state.answerSelected = false;
-    state.currentSubject = subject;
-    state.isCombinedTest = true; // Set mode flag
-    state.currentChapterId = 'Combined';
+  state.currentQuestionIndex = 0;
+  state.score = 0;
+  state.answerSelected = false;
+  state.currentSubject = subject;
+  state.isCombinedTest = true;
+  state.currentChapterId = 'Combined';
 
-    // 2. Update UI
-    const quizTitle = document.getElementById('quizTitle');
-    const questionBox = document.getElementById('questionBox');
-    const optionsList = document.getElementById('optionsList');
+  const quizTitle = document.getElementById('quizTitle');
+  const questionBox = document.getElementById('questionBox');
+  const optionsList = document.getElementById('optionsList');
 
-    quizTitle.textContent = `${subject} - Combined Test`;
-    questionBox.innerHTML = '<div class="loading-text"><i class="fas fa-spinner fa-spin"></i> Assembling test...</div>';
-    optionsList.innerHTML = '';
-    document.getElementById('nextQuestionBtn').style.display = 'none';
-    document.getElementById('finishQuizBtn').style.display = 'none';
+  quizTitle.textContent = `${subject} - Combined Test`;
+  questionBox.innerHTML = '<div class="loading-text"><i class="fas fa-spinner fa-spin"></i> Assembling test...</div>';
+  optionsList.innerHTML = '';
+  document.getElementById('nextQuestionBtn').style.display = 'none';
+  document.getElementById('finishQuizBtn').style.display = 'none';
 
-    // 3. Calculate question distribution
-    const chapters = subjectChapters[subject];
-    const totalChapters = chapters.length;
-    const questionsPerChapter = Math.floor(50 / totalChapters);
-    let remainder = 50 % totalChapters;
-    debug(`Distribution: ${questionsPerChapter} per chapter, with ${remainder} remainder.`);
+  const chapters = subjectChapters[subject];
+  const totalChapters = chapters.length;
+  const questionsPerChapter = Math.floor(50 / totalChapters);
+  let remainder = 50 % totalChapters;
+  debug(`Distribution: ${questionsPerChapter} per chapter, with ${remainder} remainder.`);
 
-    // 4. Fetch all data concurrently
-    try {
-        let sheetPrefix = subject === 'SEJARAH' ? 'SEJ' : subject === 'GEOGRAFI' ? 'GEO' : 'SCI';
-        
-        const fetchPromises = chapters.map(chapterId => fetchQuizData(`${sheetPrefix} ${chapterId}`));
-        const allChapterQuestions = await Promise.all(fetchPromises);
+  try {
+    let sheetPrefix = subject === 'SEJARAH' ? 'SEJ' : subject === 'GEOGRAFI' ? 'GEO' : 'SCI';
 
-        // 5. Assemble the final question list
-        let combinedQuizQuestions = [];
-        allChapterQuestions.forEach((chapterQuestions, index) => {
-            if (chapterQuestions.length > 0) {
-                let numToTake = questionsPerChapter;
-                if (remainder > 0) {
-                    numToTake++;
-                    remainder--;
-                }
-                const shuffledChapterQuestions = shuffleArray(chapterQuestions);
-                const selectedQuestions = shuffledChapterQuestions.slice(0, numToTake);
-                combinedQuizQuestions.push(...selectedQuestions); // Use push with spread operator
-                debug(`Took ${selectedQuestions.length} questions from chapter ${chapters[index]}`);
-            }
-        });
+    const fetchPromises = chapters.map(chapterId => fetchQuizData(`${sheetPrefix} ${chapterId}`));
+    const allChapterQuestions = await Promise.all(fetchPromises);
 
-        if (combinedQuizQuestions.length === 0) {
-            throw new Error('No valid questions found across all chapters.');
+    let combinedQuizQuestions = [];
+    allChapterQuestions.forEach((chapterQuestions, index) => {
+      if (chapterQuestions.length > 0) {
+        let numToTake = questionsPerChapter;
+        if (remainder > 0) {
+          numToTake++;
+          remainder--;
         }
+        const shuffledChapterQuestions = shuffleArray(chapterQuestions);
+        const selectedQuestions = shuffledChapterQuestions.slice(0, numToTake);
+        combinedQuizQuestions.push(...selectedQuestions);
+        debug(`Took ${selectedQuestions.length} questions from chapter ${chapters[index]}`);
+      }
+    });
 
-        debug(`Total questions assembled: ${combinedQuizQuestions.length}`);
-        state.currentQuizData = combinedQuizQuestions;
-        displayQuestion();
+    if (combinedQuizQuestions.length === 0) {
+      throw new Error('No valid questions found across all chapters.');
+    }
 
+    debug(`Total questions assembled: ${combinedQuizQuestions.length}`);
+    state.currentQuizData = shuffleArray(combinedQuizQuestions);
+    displayQuestion();
+
+  } catch (error) {
+    console.error('Failed to load combined quiz:', error);
+    questionBox.innerHTML = `<div class="error-text"><i class="fas fa-exclamation-triangle"></i><br>Failed to load combined test<br><small>${error.message}</small></div>`;
+    optionsList.innerHTML = '';
+  }
+}
+
+function displayQuestion() {
+if (state.currentQuestionIndex >= state.currentQuizData.length) {
+showResults();
+return;
+}
+
+debug(`Displaying question ${state.currentQuestionIndex + 1} of ${state.currentQuizData.length}`);
+
+const question = state.currentQuizData[state.currentQuestionIndex];
+state.answerSelected = false;
+
+const shuffledOptions = shuffleArray(question.options);
+const displayLetters = ['A', 'B', 'C', 'D'];
+
+document.getElementById('questionCounter').textContent = `Question ${state.currentQuestionIndex + 1} of ${state.currentQuizData.length}`;
+document.getElementById('scoreTracker').textContent = `Score: ${state.score}`;
+document.getElementById('questionBox').textContent = question.question;
+
+const optionsList = document.getElementById('optionsList');
+optionsList.innerHTML = '';
+
+shuffledOptions.forEach((option, index) => {
+const btn = document.createElement('button');
+btn.className = 'option-btn';
+btn.textContent = `${displayLetters[index]}. ${option.text}`;
+btn.dataset.originalAnswerLetter = option.letter;
+btn.onclick = () => handleAnswer(btn, option.letter);
+optionsList.appendChild(btn);
+});
+
+const feedback = document.getElementById('feedbackMessage');
+feedback.textContent = '';
+feedback.className = 'feedback-message';
+document.getElementById('nextQuestionBtn').style.display = 'none';
+document.getElementById('finishQuizBtn').style.display = 'none';
+}
+
+function handleAnswer(selectedBtn, selectedLetter) {
+if (state.answerSelected) return;
+state.answerSelected = true;
+
+const question = state.currentQuizData[state.currentQuestionIndex];
+const isCorrect = selectedLetter === question.correctAnswerLetter;
+
+debug(`Answer selected: ${isCorrect ? 'CORRECT' : 'WRONG'}`);
+
+const allBtns = document.querySelectorAll('.option-btn');
+const correctBtn = Array.from(allBtns).find(btn => btn.dataset.originalAnswerLetter === question.correctAnswerLetter);
+
+allBtns.forEach(btn => {
+btn.classList.add('disabled');
+if (btn === correctBtn) btn.classList.add('correct');
+});
+
+if (isCorrect) {
+state.score++;
+} else {
+selectedBtn.classList.add('wrong');
+}
+
+document.getElementById('scoreTracker').textContent = `Score: ${state.score}`;
+
+const feedback = document.getElementById('feedbackMessage');
+if (isCorrect) {
+feedback.innerHTML = '<i class="fas fa-check-circle"></i> Correct!';
+feedback.className = 'feedback-message correct';
+} else {
+const correctOption = question.options.find(opt => opt.isCorrect);
+const correctDisplayLabel = correctBtn ? correctBtn.textContent.substring(0, 1) : question.correctAnswerLetter;
+feedback.innerHTML = `<i class="fas fa-times-circle"></i> Incorrect. The correct answer was: ${correctDisplayLabel}. ${correctOption.text}`;
+feedback.className = 'feedback-message incorrect';
+}
+
+if (state.currentQuestionIndex < state.currentQuizData.length - 1) {
+document.getElementById('nextQuestionBtn').style.display = 'inline-block';
+} else {
+document.getElementById('finishQuizBtn').style.display = 'inline-block';
+}
+}
+
+// --- NEW: Google Sheets Integration ---
+// INSTRUCTIONS:
+// 1. Create a new Google Sheet to store the results.
+// 2. In your Sheet, go to Extensions -> Apps Script.
+// 3. Paste the provided Apps Script code into the script editor and save the project.
+// 4. In the Apps Script code, replace 'YOUR_GOOGLE_SHEET_ID_HERE' with the actual ID of your sheet.
+// 5. Click "Deploy" -> "New deployment".
+// 6. For "Select type", choose "Web app".
+// 7. Configure the deployment:
+//    - Description: "Lumenic Quiz Results"
+//    - Execute as: "Me"
+//    - Who has access: "Anyone"  <-- VERY IMPORTANT
+// 8. Click "Deploy". Authorize the script when prompted by Google.
+// 9. Copy the generated "Web app URL" and paste it into the SCRIPT_URL constant below.
+
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1_ZJ4WEvJqmyJfZawD649U9_YtODRiMzmou3WqJpV7dLkxBuWZH723DKiRF3ZSrKN/exec';
+
+async function submitResultsToSheet() {
+    const name = getCookie('lumenic_user_name');
+    const licenseKey = getCookie('lumenic_license_key');
+
+    if (!name || !licenseKey) {
+        debug('Cannot submit results: Name or license key missing from cookies.');
+        return;
+    }
+
+    const total = state.currentQuizData.length;
+    const scoreText = `${state.score} / ${total}`;
+    const percentageText = total > 0 ? ((state.score / total) * 100).toFixed(1) + '%' : '0%';
+    const testName = `${state.currentSubject} - ${state.currentChapterId === 'Combined' ? 'Combined Test' : 'Chapter ' + state.currentChapterId}`;
+
+    const payload = { name, licenseKey, testName, score: scoreText, percentage: percentageText };
+    debug(`Submitting results: ${JSON.stringify(payload)}`);
+
+    try {
+        await fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors', // This allows sending data without complex CORS setup
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        debug('Result submission request sent successfully.');
     } catch (error) {
-        console.error('Failed to load combined quiz:', error);
-        questionBox.innerHTML = `<div class="error-text"><i class="fas fa-exclamation-triangle"></i><br>Failed to load combined test<br><small>${error.message}</small></div>`;
-        optionsList.innerHTML = '';
+        console.error('Error submitting results to Google Sheet:', error);
+        debug('Failed to send result submission request.');
     }
 }
-// -----------------------------------------------------------------
+// --- END: Google Sheets Integration ---
 
-// Display current question
-function displayQuestion() {
- if (state.currentQuestionIndex >= state.currentQuizData.length) {
- showResults();
- return;
- }
- 
- debug(`Displaying question ${state.currentQuestionIndex + 1} of ${state.currentQuizData.length}`);
- 
- const question = state.currentQuizData[state.currentQuestionIndex];
- state.answerSelected = false;
- 
- const shuffledOptions = shuffleArray(question.options);
- const displayLetters = ['A', 'B', 'C', 'D'];
- 
- document.getElementById('questionCounter').textContent = `Question ${state.currentQuestionIndex + 1} of ${state.currentQuizData.length}`;
- document.getElementById('scoreTracker').textContent = `Score: ${state.score}`;
- document.getElementById('questionBox').textContent = question.question;
- 
- const optionsList = document.getElementById('optionsList');
- optionsList.innerHTML = '';
- 
- shuffledOptions.forEach((option, index) => { 
- const btn = document.createElement('button');
- btn.className = 'option-btn';
- btn.textContent = `${displayLetters[index]}. ${option.text}`; 
- btn.dataset.originalAnswerLetter = option.letter; 
- btn.onclick = () => handleAnswer(btn, option.letter); 
- optionsList.appendChild(btn);
- });
- 
- const feedback = document.getElementById('feedbackMessage');
- feedback.textContent = '';
- feedback.className = 'feedback-message';
- document.getElementById('nextQuestionBtn').style.display = 'none';
- document.getElementById('finishQuizBtn').style.display = 'none';
+async function logLicenseActivation(name, licenseKey) {
+    if (SCRIPT_URL === 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE' || !SCRIPT_URL) {
+        debug('Google Apps Script URL not set. Skipping key logging.');
+        return;
+    }
+
+    // We add an 'action' property to tell our script what to do
+    const payload = { name, licenseKey, action: 'logKey' };
+    debug(`Logging key activation: ${JSON.stringify(payload)}`);
+
+    try {
+        await fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        debug('Key activation log sent successfully.');
+    } catch (error) {
+        console.error('Error logging key activation:', error);
+    }
 }
 
-// Handle answer selection
-function handleAnswer(selectedBtn, selectedLetter) {
- if (state.answerSelected) return;
- state.answerSelected = true;
- 
- const question = state.currentQuizData[state.currentQuestionIndex];
- const isCorrect = selectedLetter === question.correctAnswerLetter; 
- 
- debug(`Answer selected: ${isCorrect ? 'CORRECT' : 'WRONG'}`);
- 
- const allBtns = document.querySelectorAll('.option-btn');
- const correctBtn = Array.from(allBtns).find(btn => btn.dataset.originalAnswerLetter === question.correctAnswerLetter);
-
- allBtns.forEach(btn => {
- btn.classList.add('disabled');
- if (btn === correctBtn) btn.classList.add('correct');
- });
- 
- if (isCorrect) {
- state.score++;
- } else {
- selectedBtn.classList.add('wrong');
- }
- 
- document.getElementById('scoreTracker').textContent = `Score: ${state.score}`;
- 
- const feedback = document.getElementById('feedbackMessage');
- if (isCorrect) {
- feedback.innerHTML = '<i class="fas fa-check-circle"></i> Correct!';
- feedback.className = 'feedback-message correct';
- } else {
- const correctOption = question.options.find(opt => opt.isCorrect);
- const correctDisplayLabel = correctBtn ? correctBtn.textContent.substring(0, 1) : question.correctAnswerLetter;
- feedback.innerHTML = `<i class="fas fa-times-circle"></i> Incorrect. The correct answer was: ${correctDisplayLabel}. ${correctOption.text}`;
- feedback.className = 'feedback-message incorrect';
- }
- 
- if (state.currentQuestionIndex < state.currentQuizData.length - 1) {
- document.getElementById('nextQuestionBtn').style.display = 'inline-block';
- } else {
- document.getElementById('finishQuizBtn').style.display = 'inline-block';
- }
-}
-
-// Show results
 function showResults() {
- debug('Showing results');
- const total = state.currentQuizData.length;
- const percentage = total > 0 ? ((state.score / total) * 100).toFixed(1) : 0;
- 
- document.getElementById('finalScore').textContent = `${state.score} / ${total}`;
- document.getElementById('finalPercentage').textContent = `${percentage}%`;
- 
- showScreen('resultsScreen');
+debug('Showing results');
+
+  submitResultsToSheet(); // Silently submit results in the background
+
+const total = state.currentQuizData.length;
+const percentage = total > 0 ? ((state.score / total) * 100).toFixed(1) : 0;
+
+document.getElementById('finalScore').textContent = `${state.score} / ${total}`;
+document.getElementById('finalPercentage').textContent = `${percentage}%`;
+
+showScreen('resultsScreen');
 }
 
-// Show chapters for selected subject
 function showSetsForSubject(subject) {
- debug(`Showing chapters for ${subject}`);
- state.currentSubject = subject;
- 
- document.getElementById('setSubjectTitle').textContent = `${subject}`; 
- 
- const setList = document.getElementById('setList');
- setList.innerHTML = '';
- 
- subjectChapters[subject].forEach(chapterId => {
- const setElement = document.createElement('div');
- setElement.className = 'set-item';
- setElement.textContent = `Chapter ${chapterId}`;
- setElement.onclick = () => {
-  state.currentChapterId = chapterId; 
-  startQuiz();
- };
- setList.appendChild(setElement);
- });
- 
- showScreen('setScreen');
+debug(`Showing chapters for ${subject}`);
+state.currentSubject = subject;
+
+document.getElementById('setSubjectTitle').textContent = `${subject}`;
+
+const setList = document.getElementById('setList');
+setList.innerHTML = '';
+
+subjectChapters[subject].forEach(chapterId => {
+const setElement = document.createElement('div');
+setElement.className = 'set-item';
+setElement.textContent = `Chapter ${chapterId}`;
+setElement.onclick = () => {
+ state.currentChapterId = chapterId;
+ startQuiz();
+};
+setList.appendChild(setElement);
+});
+
+showScreen('setScreen');
 }
 
-// Initialize event listeners
-document.addEventListener('DOMContentLoaded', () => {
- debug('App initialized');
- 
- const nextQuestionBtn = document.getElementById('nextQuestionBtn');
- const finishQuizBtn = document.getElementById('finishQuizBtn');
- 
- document.querySelectorAll('.subject-btn').forEach(btn => {
- btn.onclick = () => {
-  const subject = btn.dataset.subject;
-  document.querySelectorAll('.subject-btn').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected');
-  showSetsForSubject(subject);
- };
- });
 
-  // NEW: Listeners for combined test buttons
+document.addEventListener('DOMContentLoaded', async () => {
+  debug('App initialized');
+
+  // --- License & Name Check on Load ---
+  const savedName = getCookie('lumenic_user_name');
+    const savedLicenseKey = getCookie('lumenic_license_key');
+  if (savedName && savedLicenseKey && await validateLicense(savedLicenseKey)) {
+    debug(`Found valid credentials for user: ${savedName}.`);
+    showApp();
+  } else {
+    debug('No valid credentials found. Showing activation screen.');
+    showScreen('licenseScreen');
+  }
+
+    const nameInput = document.getElementById('nameInput');
+  const licenseInput = document.getElementById('licenseInput');
+  const submitLicenseBtn = document.getElementById('submitLicenseBtn');
+  const licenseError = document.getElementById('licenseError');
+
+  const handleLicenseSubmission = async () => {
+    const name = nameInput.value.trim();
+    const key = licenseInput.value.trim().toUpperCase();
+
+    // Reset previous errors
+    nameInput.style.borderColor = '';
+    licenseInput.style.borderColor = '';
+
+    if (!name) {
+        licenseError.textContent = 'Please enter your name.';
+        nameInput.style.borderColor = '#dc3545';
+        return;
+    }
+
+    licenseError.textContent = 'Validating...';
+    if (await validateLicense(key)) {
+        // --- NEW --- Log the successful activation
+        await logLicenseActivation(name, key); 
+
+        setCookie('lumenic_user_name', name, 365);
+        setCookie('lumenic_license_key', key, 365);
+        showApp();
+    } else {
+        licenseError.textContent = 'Invalid Serial Key. Please try again.';
+        licenseInput.style.borderColor = '#dc3545';
+    }
+};
+
+  submitLicenseBtn.onclick = handleLicenseSubmission;
+  licenseInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); handleLicenseSubmission(); }
+  });
+    nameInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); handleLicenseSubmission(); }
+  });
+  // ------------------------------------
+
+  const nextQuestionBtn = document.getElementById('nextQuestionBtn');
+  const finishQuizBtn = document.getElementById('finishQuizBtn');
+
+  document.querySelectorAll('.subject-btn').forEach(btn => {
+    btn.onclick = () => {
+      const subject = btn.dataset.subject;
+      document.querySelectorAll('.subject-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      showSetsForSubject(subject);
+    };
+  });
+
   document.querySelectorAll('.combined-test-btn').forEach(btn => {
     btn.onclick = () => {
       const subject = btn.dataset.subject;
       startCombinedQuiz(subject);
     };
   });
- 
- // Back button from Chapter Screen to Subject Screen
- document.getElementById('backBtn').onclick = () => {
- showScreen('subjectScreen');
- document.querySelectorAll('.subject-btn').forEach(b => b.classList.remove('selected'));
- };
- 
- // MODIFIED: Back button from Quiz Screen (handles both quiz types)
- document.getElementById('backToSetsBtn').onclick = () => {
-    if (state.isCombinedTest) {
-        showScreen('subjectScreen'); // Go to main screen from combined test
-        state.isCombinedTest = false; // Reset flag
-    } else {
-        showScreen('setScreen'); // Go to chapter screen from regular quiz
-    }
- };
- 
- // Quiz navigation
- nextQuestionBtn.onclick = () => {
- state.currentQuestionIndex++;
- displayQuestion();
- };
- 
- finishQuizBtn.onclick = showResults;
 
- // Enter Key to Next Question feature
- document.addEventListener('keydown', (e) => {
- if (e.key === 'Enter' && document.getElementById('quizScreen').classList.contains('active') && state.answerSelected) {
-  e.preventDefault();
-  if (nextQuestionBtn.style.display !== 'none') {
-   nextQuestionBtn.click();
-  } else if (finishQuizBtn.style.display !== 'none') {
-   finishQuizBtn.click();
-  }
-  }
- });
- 
- // MODIFIED: Results screen "Try Again" button (handles both quiz types)
- document.getElementById('tryAgainBtn').onclick = () => {
+  document.getElementById('backBtn').onclick = () => {
+    showScreen('subjectScreen');
+    document.querySelectorAll('.subject-btn').forEach(b => b.classList.remove('selected'));
+  };
+
+  document.getElementById('backToSetsBtn').onclick = () => {
+    if (state.isCombinedTest) {
+      showScreen('subjectScreen');
+      state.isCombinedTest = false;
+    } else {
+      showScreen('setScreen');
+    }
+  };
+
+  nextQuestionBtn.onclick = () => {
+    state.currentQuestionIndex++;
+    displayQuestion();
+  };
+
+  finishQuizBtn.onclick = showResults;
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && document.getElementById('quizScreen').classList.contains('active') && state.answerSelected) {
+      e.preventDefault();
+      if (nextQuestionBtn.style.display !== 'none') {
+        nextQuestionBtn.click();
+      } else if (finishQuizBtn.style.display !== 'none') {
+        finishQuizBtn.click();
+      }
+    }
+  });
+
+  document.getElementById('tryAgainBtn').onclick = () => {
     if (state.isCombinedTest) {
       startCombinedQuiz(state.currentSubject);
     } else {
-      startQuiz(); // This uses existing state for subject and chapter
+      startQuiz();
     }
   };
- 
- document.getElementById('homeBtn').onclick = () => {
-    state.isCombinedTest = false; // Reset flag
- showScreen('subjectScreen');
- document.querySelectorAll('.subject-btn').forEach(b => b.classList.remove('selected'));
- };
+
+  document.getElementById('homeBtn').onclick = () => {
+    state.isCombinedTest = false;
+    showScreen('subjectScreen');
+    document.querySelectorAll('.subject-btn').forEach(b => b.classList.remove('selected'));
+  };
 });
 </script>
 </body>
