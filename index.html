@@ -59,7 +59,6 @@ min-height: 400px;
 position: relative;
 }
 
-/* --- License Screen Styles --- */
 #licenseScreen {
 text-align: center;
 padding: 40px;
@@ -104,10 +103,7 @@ min-height: 20px;
 margin-top: -10px;
 margin-bottom: 15px;
 }
-/* ---------------------------------- */
 
-
-/* Subject Selection Screen */
 .subject-selection {
 display: flex;
 justify-content: center;
@@ -177,12 +173,14 @@ padding-top: 20px;
 border-top: 1px solid #444;
 text-align: center;
 }
+
 .combined-test-selection h3 {
 margin-bottom: 15px;
 color: #ccc;
 font-weight: 600;
 font-size: 1.2rem;
 }
+
 .combined-test-btn {
 background: #4a4a4a;
 color: #fff;
@@ -195,6 +193,7 @@ transition: all 0.3s ease;
 font-size: 1rem;
 font-weight: 600;
 }
+
 .combined-test-btn:hover {
 background: #5a5a5a;
 border-color: #888;
@@ -500,12 +499,11 @@ display: block;
 <div id="licenseScreen" class="screen active">
 <h2><i class="fas fa-user-shield"></i> Welcome to Lumenic</h2>
 <p>Please enter your name and serial number to begin.</p>
- <input type="text" id="nameInput" class="license-input" placeholder="ENTER YOUR FULL NAME" autocomplete="name" style="letter-spacing: 1px;">
+<input type="text" id="nameInput" class="license-input" placeholder="ENTER YOUR FULL NAME" autocomplete="name" style="letter-spacing: 1px;">
 <input type="text" id="licenseInput" class="license-input" placeholder="XXXX-XXXX-XXXXX">
 <p id="licenseError"></p>
 <button id="submitLicenseBtn" class="navigation-btn">LOGIN</button>
 </div>
-
 
 <div id="subjectScreen" class="screen">
 <div class="subject-selection">
@@ -523,13 +521,13 @@ SCIENCE
 </button>
 </div>
 
- <div class="combined-test-selection">
-  <h3>Combined Test (50 Questions)</h3>
-  <button class="combined-test-btn" data-subject="SEJARAH"><i class="fas fa-vial"></i> SEJARAH</button>
-  <button class="combined-test-btn" data-subject="GEOGRAFI"><i class="fas fa-vial"></i> GEOGRAFI</button>
-  <button class="combined-test-btn" data-subject="SCIENCE"><i class="fas fa-vial"></i> SCIENCE</button>
- </div>
- </div>
+<div class="combined-test-selection">
+<h3>Combined Test (50 Questions)</h3>
+<button class="combined-test-btn" data-subject="SEJARAH"><i class="fas fa-vial"></i> SEJARAH</button>
+<button class="combined-test-btn" data-subject="GEOGRAFI"><i class="fas fa-vial"></i> GEOGRAFI</button>
+<button class="combined-test-btn" data-subject="SCIENCE"><i class="fas fa-vial"></i> SCIENCE</button>
+</div>
+</div>
 
 <div id="setScreen" class="screen">
 <div class="set-header">
@@ -572,17 +570,21 @@ SCIENCE
 </div>
 
 <footer>
-<p> Gwee Jia You @ 2025</p>
+<p>© Gwee Jia You @ 2025</p>
 </footer>
 </div>
 
 <div id="debugPanel" class="debug-panel"></div>
 
 <script>
-// --- License Management System ---
-// IMPORTANT: This is client-side validation and is NOT secure.
-// For true security, validation must be server-side.
+// ============================================
+// CONFIGURATION - PASTE YOUR APPS SCRIPT URL
+// ============================================
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxLlUDGoU0Cmt4loWbuDHR9VVFVsN8fTqvqXunZSJP6tY2Wjeop4qBcJvPc9typjzcJ/exec';
 
+// ============================================
+// LICENSE MANAGEMENT
+// ============================================
 const VALID_LICENSE_HASHES = new Set([
  '94c025b0159eb4807bae503bb35bef72027a5b98d822267c476d73f5d0354cdd',
  'abaa3857cca383d67295bdad91ec47bbf19269b68e21087b3aac0d8e5feef1ba',
@@ -631,134 +633,116 @@ function showApp() {
   debug("Credentials valid, showing application.");
   showScreen('subjectScreen');
 }
-// --- END: License Management System ---
 
-
-// Configuration
-const SHEET_ID = '1GXpXihMX1Un1qxkt7c9NOFkMSQCbE95NOjrEwXZ-MDM';
-const API_KEY = 'AIzaSyBtMj25pNmkHAVcwtMCvQGP3R1zddMatSE';
-
+// ============================================
+// CONFIGURATION
+// ============================================
 const subjectChapters = {
-"SEJARAH": [1,2,3,4,5,6,7,8],
-"GEOGRAFI": [1,2,3,4,5,6,7,8,9,10,11],
-"SCIENCE": [1,2,3,4,5,6,7,8,9,10]
+  "SEJARAH": [1,2,3,4,5,6,7,8],
+  "GEOGRAFI": [1,2,3,4,5,6,7,8,9,10,11],
+  "SCIENCE": [1,2,3,4,5,6,7,8,9,10]
 };
 
 // State management
 const state = {
-currentQuizData: [],
-currentQuestionIndex: 0,
-score: 0,
-currentSubject: '',
-currentChapterId: 0,
-answerSelected: false,
-isCombinedTest: false
+  currentQuizData: [],
+  currentQuestionIndex: 0,
+  score: 0,
+  currentSubject: '',
+  currentChapterId: 0,
+  answerSelected: false,
+  isCombinedTest: false
 };
 
-// Debug function
+// ============================================
+// UTILITY FUNCTIONS
+// ============================================
 function debug(message) {
-console.log(`[DEBUG] ${message}`);
-const debugPanel = document.getElementById('debugPanel');
-if (debugPanel) {
-debugPanel.innerHTML = `${new Date().toLocaleTimeString()}: ${message}`;
-debugPanel.classList.add('show');
-setTimeout(() => debugPanel.classList.remove('show'), 3000);
-}
+  console.log(`[DEBUG] ${message}`);
+  const debugPanel = document.getElementById('debugPanel');
+  if (debugPanel) {
+    debugPanel.innerHTML = `${new Date().toLocaleTimeString()}: ${message}`;
+    debugPanel.classList.add('show');
+    setTimeout(() => debugPanel.classList.remove('show'), 3000);
+  }
 }
 
-// Screen management
 function showScreen(screenId) {
-debug(`Showing screen: ${screenId}`);
-document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
-const targetScreen = document.getElementById(screenId);
-if (targetScreen) targetScreen.classList.add('active');
+  debug(`Showing screen: ${screenId}`);
+  document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
+  const targetScreen = document.getElementById(screenId);
+  if (targetScreen) targetScreen.classList.add('active');
 }
 
-// Fisher-Yates shuffle
 function shuffleArray(array) {
-const shuffled = [...array];
-for (let i = shuffled.length - 1; i > 0; i--) {
-const j = Math.floor(Math.random() * (i + 1));
-[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-}
-return shuffled;
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
 }
 
-// Fetch quiz data from Google Sheets
+// ============================================
+// DATA FETCHING (via Apps Script Proxy)
+// ============================================
 async function fetchQuizData(sheetName) {
-debug(`Fetching data for sheet: ${sheetName}`);
-const range = `'${sheetName}'!A:F`;
-const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${encodeURIComponent(range)}?key=${API_KEY}`;
+  debug(`Fetching data for sheet: ${sheetName}`);
+  const url = `${SCRIPT_URL}?sheet=${encodeURIComponent(sheetName)}`;
 
-try {
-const response = await fetch(url);
-if (!response.ok) throw new Error(`API Error: ${response.status} ${response.statusText}`);
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`API Error: ${response.status} ${response.statusText}`);
 
-const data = await response.json();
-if (!data.values || data.values.length === 0) throw new Error('No data found in sheet');
+    const data = await response.json();
+    
+    if (data.error) throw new Error(data.error);
+    if (!data.questions || data.questions.length === 0) throw new Error('No data found in sheet');
 
-const questions = [];
-data.values.forEach((row, index) => {
- if (row.length >= 6 && row[0] && row[0].trim() && row[5] && ['A', 'B', 'C', 'D'].includes(row[5].trim().toUpperCase())) {
- const correctLetter = row[5].trim().toUpperCase();
- const question = {
- id: index,
- question: row[0].trim(),
- options: [],
- correctAnswerLetter: correctLetter
- };
-
- ['A', 'B', 'C', 'D'].forEach((letter, i) => {
- if (row[i + 1] && row[i + 1].trim()) {
- question.options.push({ letter, text: row[i + 1].trim(), isCorrect: letter === correctLetter });
- }
- });
-
- if (question.options.length > 0) questions.push(question);
- }
-});
-return questions;
-} catch (error) {
-console.error('Fetch error:', error);
-throw error;
-}
+    return data.questions;
+  } catch (error) {
+    console.error('Fetch error:', error);
+    throw error;
+  }
 }
 
-// Initialize single chapter quiz
+// ============================================
+// QUIZ LOGIC
+// ============================================
 async function startQuiz() {
-debug(`Starting quiz: ${state.currentSubject} - Chapter ${state.currentChapterId}`);
-showScreen('quizScreen');
+  debug(`Starting quiz: ${state.currentSubject} - Chapter ${state.currentChapterId}`);
+  showScreen('quizScreen');
 
-state.currentQuestionIndex = 0;
-state.score = 0;
-state.answerSelected = false;
-state.isCombinedTest = false;
+  state.currentQuestionIndex = 0;
+  state.score = 0;
+  state.answerSelected = false;
+  state.isCombinedTest = false;
 
-const quizTitle = document.getElementById('quizTitle');
-const questionBox = document.getElementById('questionBox');
-const optionsList = document.getElementById('optionsList');
+  const quizTitle = document.getElementById('quizTitle');
+  const questionBox = document.getElementById('questionBox');
+  const optionsList = document.getElementById('optionsList');
 
-quizTitle.textContent = `${state.currentSubject} - Chapter ${state.currentChapterId}`;
-questionBox.innerHTML = '<div class="loading-text"><i class="fas fa-spinner fa-spin"></i> Loading questions...</div>';
-optionsList.innerHTML = '';
+  quizTitle.textContent = `${state.currentSubject} - Chapter ${state.currentChapterId}`;
+  questionBox.innerHTML = '<div class="loading-text"><i class="fas fa-spinner fa-spin"></i> Loading questions...</div>';
+  optionsList.innerHTML = '';
 
-document.getElementById('nextQuestionBtn').style.display = 'none';
-document.getElementById('finishQuizBtn').style.display = 'none';
+  document.getElementById('nextQuestionBtn').style.display = 'none';
+  document.getElementById('finishQuizBtn').style.display = 'none';
 
-let sheetPrefix = state.currentSubject === 'SEJARAH' ? 'SEJ' : state.currentSubject === 'GEOGRAFI' ? 'GEO' : 'SCI';
-const sheetName = `${sheetPrefix} ${state.currentChapterId}`;
+  let sheetPrefix = state.currentSubject === 'SEJARAH' ? 'SEJ' : state.currentSubject === 'GEOGRAFI' ? 'GEO' : 'SCI';
+  const sheetName = `${sheetPrefix} ${state.currentChapterId}`;
 
-try {
-const questions = await fetchQuizData(sheetName);
-if (questions.length === 0) throw new Error('No valid questions found');
+  try {
+    const questions = await fetchQuizData(sheetName);
+    if (questions.length === 0) throw new Error('No valid questions found');
 
-state.currentQuizData = shuffleArray(questions);
-displayQuestion();
-} catch (error) {
-console.error('Failed to load quiz:', error);
-questionBox.innerHTML = `<div class="error-text"><i class="fas fa-exclamation-triangle"></i><br>Failed to load quiz<br><small>${error.message}</small></div>`;
-optionsList.innerHTML = '';
-}
+    state.currentQuizData = shuffleArray(questions);
+    displayQuestion();
+  } catch (error) {
+    console.error('Failed to load quiz:', error);
+    questionBox.innerHTML = `<div class="error-text"><i class="fas fa-exclamation-triangle"></i><br>Failed to load quiz<br><small>${error.message}</small></div>`;
+    optionsList.innerHTML = '';
+  }
 }
 
 async function startCombinedQuiz(subject) {
@@ -825,201 +809,185 @@ async function startCombinedQuiz(subject) {
 }
 
 function displayQuestion() {
-if (state.currentQuestionIndex >= state.currentQuizData.length) {
-showResults();
-return;
-}
+  if (state.currentQuestionIndex >= state.currentQuizData.length) {
+    showResults();
+    return;
+  }
 
-debug(`Displaying question ${state.currentQuestionIndex + 1} of ${state.currentQuizData.length}`);
+  debug(`Displaying question ${state.currentQuestionIndex + 1} of ${state.currentQuizData.length}`);
 
-const question = state.currentQuizData[state.currentQuestionIndex];
-state.answerSelected = false;
+  const question = state.currentQuizData[state.currentQuestionIndex];
+  state.answerSelected = false;
 
-const shuffledOptions = shuffleArray(question.options);
-const displayLetters = ['A', 'B', 'C', 'D'];
+  const shuffledOptions = shuffleArray(question.options);
+  const displayLetters = ['A', 'B', 'C', 'D'];
 
-document.getElementById('questionCounter').textContent = `Question ${state.currentQuestionIndex + 1} of ${state.currentQuizData.length}`;
-document.getElementById('scoreTracker').textContent = `Score: ${state.score}`;
-document.getElementById('questionBox').textContent = question.question;
+  document.getElementById('questionCounter').textContent = `Question ${state.currentQuestionIndex + 1} of ${state.currentQuizData.length}`;
+  document.getElementById('scoreTracker').textContent = `Score: ${state.score}`;
+  document.getElementById('questionBox').textContent = question.question;
 
-const optionsList = document.getElementById('optionsList');
-optionsList.innerHTML = '';
+  const optionsList = document.getElementById('optionsList');
+  optionsList.innerHTML = '';
 
-shuffledOptions.forEach((option, index) => {
-const btn = document.createElement('button');
-btn.className = 'option-btn';
-btn.textContent = `${displayLetters[index]}. ${option.text}`;
-btn.dataset.originalAnswerLetter = option.letter;
-btn.onclick = () => handleAnswer(btn, option.letter);
-optionsList.appendChild(btn);
-});
+  shuffledOptions.forEach((option, index) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.textContent = `${displayLetters[index]}. ${option.text}`;
+    btn.dataset.originalAnswerLetter = option.letter;
+    btn.onclick = () => handleAnswer(btn, option.letter);
+    optionsList.appendChild(btn);
+  });
 
-const feedback = document.getElementById('feedbackMessage');
-feedback.textContent = '';
-feedback.className = 'feedback-message';
-document.getElementById('nextQuestionBtn').style.display = 'none';
-document.getElementById('finishQuizBtn').style.display = 'none';
+  const feedback = document.getElementById('feedbackMessage');
+  feedback.textContent = '';
+  feedback.className = 'feedback-message';
+  document.getElementById('nextQuestionBtn').style.display = 'none';
+  document.getElementById('finishQuizBtn').style.display = 'none';
 }
 
 function handleAnswer(selectedBtn, selectedLetter) {
-if (state.answerSelected) return;
-state.answerSelected = true;
+  if (state.answerSelected) return;
+  state.answerSelected = true;
 
-const question = state.currentQuizData[state.currentQuestionIndex];
-const isCorrect = selectedLetter === question.correctAnswerLetter;
+  const question = state.currentQuizData[state.currentQuestionIndex];
+  const isCorrect = selectedLetter === question.correctAnswerLetter;
 
-debug(`Answer selected: ${isCorrect ? 'CORRECT' : 'WRONG'}`);
+  debug(`Answer selected: ${isCorrect ? 'CORRECT' : 'WRONG'}`);
 
-const allBtns = document.querySelectorAll('.option-btn');
-const correctBtn = Array.from(allBtns).find(btn => btn.dataset.originalAnswerLetter === question.correctAnswerLetter);
+  const allBtns = document.querySelectorAll('.option-btn');
+  const correctBtn = Array.from(allBtns).find(btn => btn.dataset.originalAnswerLetter === question.correctAnswerLetter);
 
-allBtns.forEach(btn => {
-btn.classList.add('disabled');
-if (btn === correctBtn) btn.classList.add('correct');
-});
+  allBtns.forEach(btn => {
+    btn.classList.add('disabled');
+    if (btn === correctBtn) btn.classList.add('correct');
+  });
 
-if (isCorrect) {
-state.score++;
-} else {
-selectedBtn.classList.add('wrong');
+  if (isCorrect) {
+    state.score++;
+  } else {
+    selectedBtn.classList.add('wrong');
+  }
+
+  document.getElementById('scoreTracker').textContent = `Score: ${state.score}`;
+
+  const feedback = document.getElementById('feedbackMessage');
+  if (isCorrect) {
+    feedback.innerHTML = '<i class="fas fa-check-circle"></i> Correct!';
+    feedback.className = 'feedback-message correct';
+  } else {
+    const correctOption = question.options.find(opt => opt.isCorrect);
+    const correctDisplayLabel = correctBtn ? correctBtn.textContent.substring(0, 1) : question.correctAnswerLetter;
+    feedback.innerHTML = `<i class="fas fa-times-circle"></i> Incorrect. The correct answer was: ${correctDisplayLabel}. ${correctOption.text}`;
+    feedback.className = 'feedback-message incorrect';
+  }
+
+  if (state.currentQuestionIndex < state.currentQuizData.length - 1) {
+    document.getElementById('nextQuestionBtn').style.display = 'inline-block';
+  } else {
+    document.getElementById('finishQuizBtn').style.display = 'inline-block';
+  }
 }
 
-document.getElementById('scoreTracker').textContent = `Score: ${state.score}`;
-
-const feedback = document.getElementById('feedbackMessage');
-if (isCorrect) {
-feedback.innerHTML = '<i class="fas fa-check-circle"></i> Correct!';
-feedback.className = 'feedback-message correct';
-} else {
-const correctOption = question.options.find(opt => opt.isCorrect);
-const correctDisplayLabel = correctBtn ? correctBtn.textContent.substring(0, 1) : question.correctAnswerLetter;
-feedback.innerHTML = `<i class="fas fa-times-circle"></i> Incorrect. The correct answer was: ${correctDisplayLabel}. ${correctOption.text}`;
-feedback.className = 'feedback-message incorrect';
-}
-
-if (state.currentQuestionIndex < state.currentQuizData.length - 1) {
-document.getElementById('nextQuestionBtn').style.display = 'inline-block';
-} else {
-document.getElementById('finishQuizBtn').style.display = 'inline-block';
-}
-}
-
-// --- NEW: Google Sheets Integration ---
-// INSTRUCTIONS:
-// 1. Create a new Google Sheet to store the results.
-// 2. In your Sheet, go to Extensions -> Apps Script.
-// 3. Paste the provided Apps Script code into the script editor and save the project.
-// 4. In the Apps Script code, replace 'YOUR_GOOGLE_SHEET_ID_HERE' with the actual ID of your sheet.
-// 5. Click "Deploy" -> "New deployment".
-// 6. For "Select type", choose "Web app".
-// 7. Configure the deployment:
-//    - Description: "Lumenic Quiz Results"
-//    - Execute as: "Me"
-//    - Who has access: "Anyone"  <-- VERY IMPORTANT
-// 8. Click "Deploy". Authorize the script when prompted by Google.
-// 9. Copy the generated "Web app URL" and paste it into the SCRIPT_URL constant below.
-
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1_ZJ4WEvJqmyJfZawD649U9_YtODRiMzmou3WqJpV7dLkxBuWZH723DKiRF3ZSrKN/exec';
-
+// ============================================
+// RESULTS SUBMISSION
+// ============================================
 async function submitResultsToSheet() {
-    const name = getCookie('lumenic_user_name');
-    const licenseKey = getCookie('lumenic_license_key');
+  const name = getCookie('lumenic_user_name');
+  const licenseKey = getCookie('lumenic_license_key');
 
-    if (!name || !licenseKey) {
-        debug('Cannot submit results: Name or license key missing from cookies.');
-        return;
-    }
+  if (!name || !licenseKey) {
+    debug('Cannot submit results: Name or license key missing from cookies.');
+    return;
+  }
 
-    const total = state.currentQuizData.length;
-    const scoreText = `${state.score} / ${total}`;
-    const percentageText = total > 0 ? ((state.score / total) * 100).toFixed(1) + '%' : '0%';
-    const testName = `${state.currentSubject} - ${state.currentChapterId === 'Combined' ? 'Combined Test' : 'Chapter ' + state.currentChapterId}`;
+  const total = state.currentQuizData.length;
+  const scoreText = `${state.score} / ${total}`;
+  const percentageText = total > 0 ? ((state.score / total) * 100).toFixed(1) + '%' : '0%';
+  const testName = `${state.currentSubject} - ${state.currentChapterId === 'Combined' ? 'Combined Test' : 'Chapter ' + state.currentChapterId}`;
 
-    const payload = { name, licenseKey, testName, score: scoreText, percentage: percentageText };
-    debug(`Submitting results: ${JSON.stringify(payload)}`);
+  const payload = { name, licenseKey, testName, score: scoreText, percentage: percentageText };
+  debug(`Submitting results: ${JSON.stringify(payload)}`);
 
-    try {
-        await fetch(SCRIPT_URL, {
-            method: 'POST',
-            mode: 'no-cors', // This allows sending data without complex CORS setup
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-        });
-        debug('Result submission request sent successfully.');
-    } catch (error) {
-        console.error('Error submitting results to Google Sheet:', error);
-        debug('Failed to send result submission request.');
-    }
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    debug('Result submission request sent successfully.');
+  } catch (error) {
+    console.error('Error submitting results to Google Sheet:', error);
+    debug('Failed to send result submission request.');
+  }
 }
-// --- END: Google Sheets Integration ---
 
 async function logLicenseActivation(name, licenseKey) {
-    if (SCRIPT_URL === 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE' || !SCRIPT_URL) {
-        debug('Google Apps Script URL not set. Skipping key logging.');
-        return;
-    }
+  if (!SCRIPT_URL) {
+    debug('Google Apps Script URL not set. Skipping key logging.');
+    return;
+  }
 
-    // We add an 'action' property to tell our script what to do
-    const payload = { name, licenseKey, action: 'logKey' };
-    debug(`Logging key activation: ${JSON.stringify(payload)}`);
+  const payload = { name, licenseKey, action: 'logKey' };
+  debug(`Logging key activation: ${JSON.stringify(payload)}`);
 
-    try {
-        await fetch(SCRIPT_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-        });
-        debug('Key activation log sent successfully.');
-    } catch (error) {
-        console.error('Error logging key activation:', error);
-    }
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    debug('Key activation log sent successfully.');
+  } catch (error) {
+    console.error('Error logging key activation:', error);
+  }
 }
 
 function showResults() {
-debug('Showing results');
+  debug('Showing results');
+  submitResultsToSheet();
 
-  submitResultsToSheet(); // Silently submit results in the background
+  const total = state.currentQuizData.length;
+  const percentage = total > 0 ? ((state.score / total) * 100).toFixed(1) : 0;
 
-const total = state.currentQuizData.length;
-const percentage = total > 0 ? ((state.score / total) * 100).toFixed(1) : 0;
+  document.getElementById('finalScore').textContent = `${state.score} / ${total}`;
+  document.getElementById('finalPercentage').textContent = `${percentage}%`;
 
-document.getElementById('finalScore').textContent = `${state.score} / ${total}`;
-document.getElementById('finalPercentage').textContent = `${percentage}%`;
-
-showScreen('resultsScreen');
+  showScreen('resultsScreen');
 }
 
 function showSetsForSubject(subject) {
-debug(`Showing chapters for ${subject}`);
-state.currentSubject = subject;
+  debug(`Showing chapters for ${subject}`);
+  state.currentSubject = subject;
 
-document.getElementById('setSubjectTitle').textContent = `${subject}`;
+  document.getElementById('setSubjectTitle').textContent = `${subject}`;
 
-const setList = document.getElementById('setList');
-setList.innerHTML = '';
+  const setList = document.getElementById('setList');
+  setList.innerHTML = '';
 
-subjectChapters[subject].forEach(chapterId => {
-const setElement = document.createElement('div');
-setElement.className = 'set-item';
-setElement.textContent = `Chapter ${chapterId}`;
-setElement.onclick = () => {
- state.currentChapterId = chapterId;
- startQuiz();
-};
-setList.appendChild(setElement);
-});
+  subjectChapters[subject].forEach(chapterId => {
+    const setElement = document.createElement('div');
+    setElement.className = 'set-item';
+    setElement.textContent = `Chapter ${chapterId}`;
+    setElement.onclick = () => {
+      state.currentChapterId = chapterId;
+      startQuiz();
+    };
+    setList.appendChild(setElement);
+  });
 
-showScreen('setScreen');
+  showScreen('setScreen');
 }
 
-
+// ============================================
+// INITIALIZATION
+// ============================================
 document.addEventListener('DOMContentLoaded', async () => {
   debug('App initialized');
 
-  // --- License & Name Check on Load ---
   const savedName = getCookie('lumenic_user_name');
-    const savedLicenseKey = getCookie('lumenic_license_key');
+  const savedLicenseKey = getCookie('lumenic_license_key');
   if (savedName && savedLicenseKey && await validateLicense(savedLicenseKey)) {
     debug(`Found valid credentials for user: ${savedName}.`);
     showApp();
@@ -1028,7 +996,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     showScreen('licenseScreen');
   }
 
-    const nameInput = document.getElementById('nameInput');
+  const nameInput = document.getElementById('nameInput');
   const licenseInput = document.getElementById('licenseInput');
   const submitLicenseBtn = document.getElementById('submitLicenseBtn');
   const licenseError = document.getElementById('licenseError');
@@ -1037,38 +1005,34 @@ document.addEventListener('DOMContentLoaded', async () => {
     const name = nameInput.value.trim();
     const key = licenseInput.value.trim().toUpperCase();
 
-    // Reset previous errors
     nameInput.style.borderColor = '';
     licenseInput.style.borderColor = '';
 
     if (!name) {
-        licenseError.textContent = 'Please enter your name.';
-        nameInput.style.borderColor = '#dc3545';
-        return;
+      licenseError.textContent = 'Please enter your name.';
+      nameInput.style.borderColor = '#dc3545';
+      return;
     }
 
     licenseError.textContent = 'Validating...';
     if (await validateLicense(key)) {
-        // --- NEW --- Log the successful activation
-        await logLicenseActivation(name, key); 
-
-        setCookie('lumenic_user_name', name, 365);
-        setCookie('lumenic_license_key', key, 365);
-        showApp();
+      await logLicenseActivation(name, key);
+      setCookie('lumenic_user_name', name, 365);
+      setCookie('lumenic_license_key', key, 365);
+      showApp();
     } else {
-        licenseError.textContent = 'Invalid Serial Key. Please try again.';
-        licenseInput.style.borderColor = '#dc3545';
+      licenseError.textContent = 'Invalid Serial Key. Please try again.';
+      licenseInput.style.borderColor = '#dc3545';
     }
-};
+  };
 
   submitLicenseBtn.onclick = handleLicenseSubmission;
   licenseInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') { e.preventDefault(); handleLicenseSubmission(); }
   });
-    nameInput.addEventListener('keydown', (e) => {
+  nameInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') { e.preventDefault(); handleLicenseSubmission(); }
   });
-  // ------------------------------------
 
   const nextQuestionBtn = document.getElementById('nextQuestionBtn');
   const finishQuizBtn = document.getElementById('finishQuizBtn');
